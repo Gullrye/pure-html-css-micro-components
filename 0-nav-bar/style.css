@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1e272e;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+nav {
+  width: 600px;
+}
+
+nav ul {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+ul li {
+  width: 120px;
+  height: 40px;
+  list-style: none;
+  text-align: center;
+}
+
+ul li a {
+  line-height: 40px;
+  text-decoration: none;
+  color: white;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: -1;
+  width: 100px;
+  height: 40px;
+  border-radius: 3px;
+  background: #5352ed;
+  transition: all ease 0.4s;
+  animation: waves 3s ease-in-out infinite;
+}
+
+@keyframes waves {
+  /* 
+  clip-path 使用裁剪方式创建元素的可显示区域。区域内的部分显示，区域外的隐藏。
+  */
+  /* 裁剪出一个多边形，路径闭合，即蓝色部分为我们裁剪后显示的区域 */
+  0% {
+    clip-path: polygon(0% 0%, 25% 20%, 50% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  50% {
+    clip-path: polygon(0% 0%, 50% 0%, 75% 20%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 25% 20%, 50% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+/* A ~ B：同父元素下A后边的元素B */
+ul li:nth-child(1):hover ~ .slider {
+  left: 10px;
+}
+ul li:nth-child(2):hover ~ .slider {
+  left: 130px;
+}
+ul li:nth-child(3):hover ~ .slider {
+  left: 250px;
+}
+ul li:nth-child(4):hover ~ .slider {
+  left: 370px;
+}
+ul li:nth-child(5):hover ~ .slider {
+  left: 490px;
+}
